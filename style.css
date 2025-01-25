@@ -1,0 +1,40 @@
+.module-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  background-color: black;
+}
+
+.module {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.image {
+  width: 180px;
+  height: 204px;
+}
+
+.count, .loop {
+  color: white;
+}
+
+#resetButton {
+  margin: 0 auto;
+  width: 80px;
+  height: 30px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 0; /* 角を丸くしない */
+  cursor: pointer;
+  color: white;
+}
+
+body {
+  color: white;
+  background-color: black;
+}
