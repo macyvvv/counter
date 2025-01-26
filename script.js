@@ -16,7 +16,7 @@ class CounterModule {
         this.loopCount++;
         this.loopElement.textContent = this.loopCount;
 
-        // 周回上限を設定（ここでは10回とする）
+        // 周回上限を設定（ここでは5回とする）
         if (this.loopCount >= 5) {
           this.loopElement.textContent = '達成';
         }
