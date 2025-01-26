@@ -1,27 +1,36 @@
 class CounterModule {
   constructor(imageElement, countElement, loopElement, maxCount) {
-    this.image = imageElement;
+    this.module = imageElement.closest('.module'); // 親要素を取得
     this.countElement = countElement;
     this.loopElement = loopElement;
     this.maxCount = maxCount;
     this.count = 0;
     this.loopCount = 0;
 
-    this.image.addEventListener('click', () => {
-      this.count++;
-      this.countElement.textContent = this.count;
-
-      if (this.count >= this.maxCount) {
-        this.count = 0;
-        this.loopCount++;
-        this.loopElement.textContent = this.loopCount;
-
-        // 周回上限を設定（ここでは5回とする）
-        if (this.loopCount >= 5) {
-          this.loopElement.textContent = '達成';
-        }
-      }
+    // タッチイベントとクリックイベントを追加
+    this.module.addEventListener('touchstart', () => {
+      this.handleClick();
     });
+
+    this.module.addEventListener('click', () => {
+      this.handleClick();
+    });
+  }
+
+  // ハンドラーを定義
+  handleClick() {
+    this.count++;
+    this.countElement.textContent = this.count;
+
+    if (this.count >= this.maxCount) {
+      this.count = 0;
+      this.loopCount++;
+      this.loopElement.textContent = this.loopCount;
+
+      if (this.loopCount >= 5) {
+        this.loopElement.textContent = '達成';
+      }
+    }
   }
 }
 
