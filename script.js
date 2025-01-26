@@ -38,7 +38,7 @@ class CounterModule {
   // カウントと表示の更新処理
   updateDisplay() {
     this.countElement.textContent = this.count;
-    this.loopElement.textContent = this.loopCount;
+    this.loopElement.textContent = `${this.loopCount}周目`; // 表記を「n周目」に変更
 
     // 達成状態の場合のスタイル適用
     if (this.loopCount >= 5) {
