@@ -58,6 +58,7 @@ body {
 
 /* カウントとループの数字部分 */
 .count, .loop {
+  font-family: "Arial", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
   font-size: 2rem; /* 元の倍程度のサイズ */
   font-weight: bold;
   color: #ffcc00; /* 明るい黄色で強調 */
