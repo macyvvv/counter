@@ -1,40 +1,62 @@
-.module-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
+/* 全体の設定 */
+body {
+  color: white;
   background-color: black;
+  margin: 0; /* ページ全体の余白を削除 */
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* モジュールコンテナ */
+.module-container {
+  display: flex;
+  justify-content: center; /* モジュールを中央揃え */
+  flex-wrap: wrap; /* 小さい画面では折り返す */
+  gap: 10px; /* モジュール間のスペースを設定 */
+  padding: 10px; /* コンテナ全体に余白 */
+}
+
+/* モジュール */
 .module {
-  width: 200px;
+  width: calc(100% / 2 - 20px); /* 小さい画面では2列表示 */
+  max-width: 200px; /* 幅を制限 */
   text-align: center;
   border: 1px solid #ccc;
   padding: 10px;
-  margin: 10px;
+  margin: 0 auto;
+  background-color: #222; /* 背景を少し目立たせる */
+  border-radius: 5px; /* 角を少し丸く */
 }
 
+/* 画像 */
 .image {
-  width: 180px;
-  height: 204px;
+  width: 100%; /* 画像を親要素に合わせる */
+  height: auto; /* アスペクト比を維持 */
 }
 
+/* カウントとループのテキスト */
 .count, .loop {
   color: white;
 }
 
+/* リセットボタン */
 #resetButton {
-  margin: 0 auto;
-  width: 80px;
-  height: 30px;
+  display: block;
+  margin: 20px auto; /* 自動的に中央揃え */
+  width: 80%;
+  max-width: 200px;
+  height: 40px;
   background-color: #ccc;
   border: none;
-  border-radius: 0; /* 角を丸くしない */
+  border-radius: 5px;
   cursor: pointer;
-  color: white;
+  color: black;
+  font-size: 16px; /* モバイルでも押しやすいサイズ */
 }
 
-body {
-  color: white;
-  background-color: black;
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+  .module {
+    width: calc(100% - 20px); /* 小さい画面では1列表示 */
+  }
 }
