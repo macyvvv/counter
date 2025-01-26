@@ -1,7 +1,7 @@
 /* 全体の設定 */
 body {
   color: white;
-  background-color: red;
+  background-color: black;
   margin: 0; /* ページ全体の余白を削除 */
   padding: 0;
   box-sizing: border-box;
