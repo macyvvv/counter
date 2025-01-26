@@ -2,7 +2,7 @@
 body {
   color: white;
   background-color: black;
-  margin: 0; /* ページ全体の余白を削除 */
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -10,28 +10,38 @@ body {
 /* モジュールコンテナ */
 .module-container {
   display: flex;
-  justify-content: center; /* モジュールを中央揃え */
-  flex-wrap: wrap; /* 小さい画面では折り返す */
-  gap: 10px; /* モジュール間のスペースを設定 */
-  padding: 10px; /* コンテナ全体に余白 */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
 }
 
 /* モジュール */
 .module {
-  width: calc(100% / 2 - 20px); /* 小さい画面では2列表示 */
-  max-width: 200px; /* 幅を制限 */
+  width: calc(100% / 2 - 20px);
+  max-width: 200px;
   text-align: center;
   border: 1px solid #ccc;
   padding: 10px;
   margin: 0 auto;
-  background-color: #222; /* 背景を少し目立たせる */
-  border-radius: 5px; /* 角を少し丸く */
+  background-color: #222;
+  border-radius: 5px;
+}
+
+/* モジュール内のテキスト */
+.module p {
+  font-family: "Arial", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif; /* ゴシック体 */
+  font-size: 80%; /* 各モジュール幅の80% */
+  width: 80%; /* モジュールの幅に基づいたテキストの幅 */
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
 }
 
 /* 画像 */
 .image {
-  width: 100%; /* 画像を親要素に合わせる */
-  height: auto; /* アスペクト比を維持 */
+  width: 100%;
+  height: auto;
 }
 
 /* カウントとループのテキスト */
@@ -42,21 +52,6 @@ body {
 /* リセットボタン */
 #resetButton {
   display: block;
-  margin: 20px auto; /* 自動的に中央揃え */
+  margin: 20px auto;
   width: 80%;
   max-width: 200px;
-  height: 40px;
-  background-color: #ccc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: black;
-  font-size: 16px; /* モバイルでも押しやすいサイズ */
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 600px) {
-  .module {
-    width: calc(100% - 20px); /* 小さい画面では1列表示 */
-  }
-}
