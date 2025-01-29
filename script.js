@@ -20,6 +20,9 @@ class CounterModule {
     this.loopCount = savedData.loopCount;
     this.totalClicks = savedData.totalClicks;
     this.isAchieved = savedData.isAchieved || false;
+    this.previousCount = savedData.previousCount || this.maxCount; // 達成直前の値を保存
+    this.previousLoopCount = savedData.previousLoopCount || 1;
+    this.previousTotalClicks = savedData.previousTotalClicks || 0;
 
     this.updateDisplay();
 
@@ -29,7 +32,15 @@ class CounterModule {
 
   loadData() {
     const savedData = JSON.parse(localStorage.getItem(`module-${this.moduleIndex}`));
-    return savedData || { count: this.maxCount, loopCount: 1, totalClicks: 0, isAchieved: false };
+    return savedData || { 
+      count: this.maxCount, 
+      loopCount: 1, 
+      totalClicks: 0, 
+      isAchieved: false,
+      previousCount: this.maxCount,
+      previousLoopCount: 1,
+      previousTotalClicks: 0
+    };
   }
 
   saveData() {
@@ -39,7 +50,10 @@ class CounterModule {
         count: this.count,
         loopCount: this.loopCount,
         totalClicks: this.totalClicks,
-        isAchieved: this.isAchieved
+        isAchieved: this.isAchieved,
+        previousCount: this.previousCount,
+        previousLoopCount: this.previousLoopCount,
+        previousTotalClicks: this.previousTotalClicks
       })
     );
   }
@@ -61,6 +75,11 @@ class CounterModule {
   handleClick() {
     if (this.isAchieved) return;
 
+    // 達成直前の値を保存
+    this.previousCount = this.count;
+    this.previousLoopCount = this.loopCount;
+    this.previousTotalClicks = this.totalClicks;
+
     this.count--;
     this.totalClicks++;
 
@@ -79,15 +98,14 @@ class CounterModule {
 
   correctClick() {
     if (this.isAchieved) {
-      // 達成状態を解除し、達成直前の状態をロード
+      // 達成状態を解除し、達成直前の状態に戻す
       this.isAchieved = false;
       this.module.classList.remove("completed");
       this.achievedMessage.style.display = "none";
 
-      const savedData = this.loadData();
-      this.count = savedData.count;
-      this.loopCount = savedData.loopCount;
-      this.totalClicks = savedData.totalClicks;
+      this.count = this.previousCount;
+      this.loopCount = this.previousLoopCount;
+      this.totalClicks = this.previousTotalClicks;
 
       this.module.querySelectorAll('.click-area p').forEach(el => el.style.display = 'block');
       this.updateDisplay();
