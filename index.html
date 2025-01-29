@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -8,31 +8,68 @@
 </head>
 <body>
   <div class="module-container">
-    <button id="resetButton">リセット</button>
-    <div class="module">
-      <img src="image1.png" alt="画像1" class="image">
-      <p>周回まで: <span class="count">0</span></p>
-      <p><span class="loop">1</span></p>
+    <button id="resetButton" aria-label="全てのカウンタをリセット">リセット</button>
+
+    <!-- モジュール1 -->
+    <div class="module" id="module-1">
+      <div class="click-area">
+        <img src="image1.png" alt="画像1" class="image">
+        <p class="count">周回まで: <span>50</span></p>
+        <p class="loop">1周目</p>
+        <p class="total-clicks">累計クリック数: <span>0</span></p>
+      </div>
+      <div class="control-area">
+        <button class="add-click-button" aria-label="カウントを修正">+1</button>
+      </div>
     </div>
-    <div class="module">
-      <img src="image2.png" alt="画像2" class="image">
-      <p>周回まで: <span class="count">0</span></p>
-      <p><span class="loop">1</span></p>
+
+    <!-- モジュール2～5（省略せず全て記載） -->
+    <div class="module" id="module-2">
+      <div class="click-area">
+        <img src="image2.png" alt="画像2" class="image">
+        <p class="count">周回まで: <span>10</span></p>
+        <p class="loop">1周目</p>
+        <p class="total-clicks">累計クリック数: <span>0</span></p>
+      </div>
+      <div class="control-area">
+        <button class="add-click-button" aria-label="カウントを修正">+1</button>
+      </div>
     </div>
-    <div class="module">
-      <img src="image3.png" alt="画像3" class="image">
-      <p>周回まで: <span class="count">0</span></p>
-      <p><span class="loop">1</span></p>
+
+    <div class="module" id="module-3">
+      <div class="click-area">
+        <img src="image3.png" alt="画像3" class="image">
+        <p class="count">周回まで: <span>6</span></p>
+        <p class="loop">1周目</p>
+        <p class="total-clicks">累計クリック数: <span>0</span></p>
+      </div>
+      <div class="control-area">
+        <button class="add-click-button" aria-label="カウントを修正">+1</button>
+      </div>
     </div>
-    <div class="module">
-      <img src="image4.png" alt="画像4" class="image">
-      <p>周回まで: <span class="count">0</span></p>
-      <p><span class="loop">1</span></p>
+
+    <div class="module" id="module-4">
+      <div class="click-area">
+        <img src="image4.png" alt="画像4" class="image">
+        <p class="count">周回まで: <span>4</span></p>
+        <p class="loop">1周目</p>
+        <p class="total-clicks">累計クリック数: <span>0</span></p>
+      </div>
+      <div class="control-area">
+        <button class="add-click-button" aria-label="カウントを修正">+1</button>
+      </div>
     </div>
-    <div class="module">
-      <img src="image5.png" alt="画像5" class="image">
-      <p>周回まで: <span class="count">0</span></p>
-      <p><span class="loop">1</span></p>
+
+    <div class="module" id="module-5">
+      <div class="click-area">
+        <img src="image5.png" alt="画像5" class="image">
+        <p class="count">周回まで: <span>2</span></p>
+        <p class="loop">1周目</p>
+        <p class="total-clicks">累計クリック数: <span>0</span></p>
+      </div>
+      <div class="control-area">
+        <button class="add-click-button" aria-label="カウントを修正">+1</button>
+      </div>
     </div>
   </div>
 
