@@ -2,6 +2,7 @@
 body {
   color: white;
   background-color: black;
+  font-family: "Arial", "ヒラギノ角ゴ ProN", "メイリオ", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -20,100 +21,98 @@ body {
 .module {
   width: calc(100% / 2 - 20px);
   max-width: 200px;
-  text-align: center;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 0 auto;
   background-color: #222;
-  border-radius: 5px;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  pointer-events: auto; /* 通常時のクリック有効化 */
-}
-
-/* モジュール内の画像 */
-.image {
-  width: 100%;
-  height: auto;
-  max-width: 180px;
-  margin: 0 auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-.module.completed .image {
-  width: 80%; /* 「達成！」時の画像サイズを少し小さく */
-  margin-bottom: 20px;
-}
-
-/* モジュール内のテキスト */
-.module p {
-  font-family: "Arial", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 180px;
-  margin: 10px auto 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   text-align: center;
-  line-height: 1.5;
-}
-
-/* カウントとループの数字部分 */
-.count, .loop {
-  font-family: "Arial", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
-  font-size: 2rem; /* 元の倍程度のサイズ */
-  font-weight: bold;
-  color: #ffcc00; /* 明るい黄色で強調 */
-}
-
-.module.completed .count,
-.module.completed .loop {
-  display: none; /* 「達成！」時に非表示 */
-}
-
-/* 「達成！」状態のスタイル */
-.module.completed {
+  margin: 0 auto;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  background-color: #000; /* 背景を黒で統一 */
-  pointer-events: none; /* 達成時のクリック無効化 */
+  justify-content: space-between;
+  min-height: 250px;
 }
 
-.module.completed::after {
-  content: '達成！'; /* 表示を「達成！」に変更 */
-  font-size: 3rem; /* 最大サイズで表示 */
+/* 画像が枠からはみ出さないようにする */
+.image {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* クリックエリア */
+.click-area {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+}
+
+/* 「周回まで」の表示 */
+.count {
+  font-size: 1.2rem;
+  color: #ccc;
+  font-weight: normal;
+}
+
+/* 数値のみを強調 */
+.count span {
+  font-size: 2.2rem;
   font-weight: bold;
-  color: red; /* 赤文字で強調 */
+  color: #ffcc00;
 }
 
-/* リセットボタン */
-#resetButton {
+/* 周回数の表示 */
+.loop {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* 累計クリック数 */
+.total-clicks {
+  font-size: 1rem;
+  color: #999;
+}
+
+/* 達成時の表示（画像、達成！、加算ボタンのみを残す） */
+.module.completed .click-area p {
+  display: none;
+}
+
+.module.completed .achieved-message {
   display: block;
-  margin: 20px auto;
-  width: 80%;
-  max-width: 200px;
-  height: 40px;
-  background-color: #ccc;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  flex-grow: 1;
+}
+
+/* 達成時も加算ボタンを残す */
+.module.completed .control-area {
+  display: block;
+}
+
+/* 加算ボタン */
+.control-area {
+  padding: 10px;
+  background-color: #333;
+}
+
+.add-click-button {
+  display: block;
+  margin: 0 auto;
+  padding: 6px 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: black;
-  font-size: 16px;
 }
 
-/* モジュールのホバーアニメーション（任意） */
-.module:hover .image {
-  transform: scale(1.05); /* 少し拡大 */
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 600px) {
-  .module {
-    width: calc(100% - 20px); /* 小さい画面では1列表示 */
-  }
-  .image, .module p {
-    max-width: 100%;
-  }
+.add-click-button:hover {
+  background-color: #0056b3;
 }
